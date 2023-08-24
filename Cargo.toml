@@ -1,0 +1,31 @@
+[package]
+name = "hello-wasi-http"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cargo-component-bindings = { git = "https://github.com/bytecodealliance/cargo-component" }
+
+[lib]
+crate-type = ["cdylib"]
+
+[package.metadata.component]
+package = "component:hello-wasi-http"
+
+[package.metadata.component.target]
+path = "wit"
+
+[package.metadata.component.target.dependencies]
+"wasi:clocks" = { path = "wit/deps/clocks" }
+"wasi:http" = { path = "wit/deps/http" }
+"wasi:poll" = { path = "wit/deps/poll" }
+"wasi:random" = { path = "wit/deps/random" }
+"wasi:cli" = { path = "wit/deps/cli" }
+"wasi:filesystem" = { path = "wit/deps/filesystem" }
+"wasi:io" = { path = "wit/deps/io" }
+"wasi:sockets" = { path = "wit/deps/sockets" }
+
+[package.metadata.component.dependencies]
+

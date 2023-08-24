@@ -1,0 +1,6 @@
+package component:hello-wasi-http
+
+world hello-wasi-http {
+  import wasi:http/outgoing-handler
+  export wasi:http/incoming-handler
+}
